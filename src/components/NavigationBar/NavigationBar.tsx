@@ -1,6 +1,7 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Button, Input } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import SearchBar from "../ui/SearchBar";
@@ -24,7 +25,10 @@ const NavigationBar = ({ toggleSidebar }: any) => {
 
   return (
     <header
-      style={{ transition: "top 0.3s ease-in-out",borderBottom:"5px solid var(--primaryColor)" }}
+      style={{
+        transition: "top 0.3s ease-in-out",
+        borderBottom: "5px solid var(--primaryColor)",
+      }}
       className={`bg-white shadow z-50 ${
         isScrolled ? "fixed top-0 left-0 right-0" : "relative"
       }`}
@@ -51,9 +55,18 @@ const NavigationBar = ({ toggleSidebar }: any) => {
           <Badge count={4} className="mr-2 md:mr-4">
             <ShoppingCartOutlined className="text-xl cursor-pointer" />
           </Badge>
-          <button className="bg-green-500 text-white px-4 py-1 rounded">
-            Login / Sign up
-          </button>
+          <div
+            style={{ backgroundColor: "var(--primaryColor)" }}
+            className="p-3 rounded-xl font-semibold mx-4"
+          >
+            <span className="text-white text-md">
+              <Link href={"/login"}>Login</Link>
+            </span>
+            <span className="text-white text-md mx-2">/</span>
+            <span className="text-white text-md">
+              <Link href={"/register"}>Sign up</Link>
+            </span>
+          </div>
         </div>
       </div>
     </header>

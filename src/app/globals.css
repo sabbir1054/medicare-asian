@@ -53,7 +53,9 @@ small {
 .ant-input {
   height: 2.5rem;
 }
-
-.anticon-search{
+.ant-input-outlined {
+  border-color: #686566 !important;
+}
+.anticon-search {
   font-size: 20px;
 }

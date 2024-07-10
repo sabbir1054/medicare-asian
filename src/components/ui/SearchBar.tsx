@@ -7,7 +7,7 @@ const SearchBar = () => {
       <Search
         placeholder="Search your medicine / ঔষধ  ও পণ্য সার্চ করুন"
         enterButton
-        className="flex-grow mx-4"
+        className="flex-grow mx-4 placeholder:text-red-300"
       />
     </>
   );
