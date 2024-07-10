@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
+import { TbMapPin } from "react-icons/tb";
 import SearchBar from "../ui/SearchBar";
 const { Search } = Input;
 
@@ -52,11 +53,15 @@ const NavigationBar = ({ toggleSidebar }: any) => {
 
         <div className="flex-1 justify-end">
           <div className="flex items-center justify-between">
-            <span className="hidden md:inline-block mx-10 md:mr-4">
-              Sirajganj
+            <span className="text-xl flex mx-10 md:mr-4  items-center">
+              <TbMapPin style={{ color: "var(--secondaryColor)" }} /> Sirajganj
             </span>
-            <Badge count={4} className="mr-2 md:mr-4">
-              <ShoppingCartOutlined className="text-xl cursor-pointer" />
+            <Badge
+              count={4}
+              className="mr-2 md:mr-4"
+              style={{ backgroundColor: "var(--secondaryColor)" }}
+            >
+              <ShoppingCartOutlined className="text-white text-2xl p-2 rounded-full cursor-pointer" style={{backgroundColor:"var(--primaryColor)",color:"white"}} />
             </Badge>
             <div
               style={{ backgroundColor: "var(--primaryColor)" }}
