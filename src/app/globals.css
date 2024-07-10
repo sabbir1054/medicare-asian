@@ -47,4 +47,13 @@ small {
 
 .ant-input-search-button {
   background-color: #0e7673 !important;
+  padding: 19px !important;
+}
+
+.ant-input {
+  height: 2.5rem;
+}
+
+.anticon-search{
+  font-size: 20px;
 }
