@@ -50,22 +50,26 @@ const NavigationBar = ({ toggleSidebar }: any) => {
           <SearchBar />
         </div>
 
-        <div className="flex items-center flex-1 justify-end">
-          <span className="hidden md:inline-block mr-2 md:mr-4">Sirajganj</span>
-          <Badge count={4} className="mr-2 md:mr-4">
-            <ShoppingCartOutlined className="text-xl cursor-pointer" />
-          </Badge>
-          <div
-            style={{ backgroundColor: "var(--primaryColor)" }}
-            className="p-3 rounded-xl font-semibold mx-4"
-          >
-            <span className="text-white text-md">
-              <Link href={"/login"}>Login</Link>
+        <div className="flex-1 justify-end">
+          <div className="flex items-center justify-between">
+            <span className="hidden md:inline-block mx-10 md:mr-4">
+              Sirajganj
             </span>
-            <span className="text-white text-md mx-2">/</span>
-            <span className="text-white text-md">
-              <Link href={"/register"}>Sign up</Link>
-            </span>
+            <Badge count={4} className="mr-2 md:mr-4">
+              <ShoppingCartOutlined className="text-xl cursor-pointer" />
+            </Badge>
+            <div
+              style={{ backgroundColor: "var(--primaryColor)" }}
+              className="p-3 rounded-xl font-semibold mx-4"
+            >
+              <span className="text-white text-md">
+                <Link href={"/login"}>Login</Link>
+              </span>
+              <span className="text-white text-md mx-2">/</span>
+              <span className="text-white text-md">
+                <Link href={"/register"}>Sign up</Link>
+              </span>
+            </div>
           </div>
         </div>
       </div>
