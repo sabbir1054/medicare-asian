@@ -19,7 +19,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
           <Sidebar isOpen={isSidebarOpen} />
           <main
             className={`flex-grow transition-all ${
-              isSidebarOpen ? "ml-64" : "ml-0"
+              isSidebarOpen ? "ml-96" : "ml-0"
             } p-4`}
           >
             {children}
