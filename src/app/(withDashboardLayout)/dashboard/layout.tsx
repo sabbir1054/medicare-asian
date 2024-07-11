@@ -1,6 +1,7 @@
 "use client";
 import DashboardNavigationBar from "@/components/NavigationBar/DasboardNavigationBar";
 import DashboardSideBar from "@/components/SadeBar/DashboardSidebar";
+import FooterSection from "@/components/ui/Footer";
 import {
   UploadOutlined,
   UserOutlined,
@@ -49,25 +50,6 @@ const DasboardLayout = ({ children }: { children: React.ReactNode }) => {
     <Layout style={{ minHeight: "100vh" }}>
       <DashboardNavigationBar />
       <Layout>
-        {/* <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-          className="mt-2"
-        >
-          <div className="demo-logo-vertical" />
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            items={items}
-          />
-        </Sider> */}
         <DashboardSideBar />
         <Layout>
           <Content style={{ margin: "24px 16px 0" }}>
@@ -82,11 +64,11 @@ const DasboardLayout = ({ children }: { children: React.ReactNode }) => {
               {children}
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©{new Date().getFullYear()} Created by Ant UED
-          </Footer>
         </Layout>
       </Layout>
+      <Footer className="!p-0">
+        <FooterSection />
+      </Footer>
     </Layout>
   );
 };
