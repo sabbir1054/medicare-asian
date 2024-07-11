@@ -1,13 +1,22 @@
 "use client";
 
 import { Button, Form, Input } from "antd";
+import { RuleObject } from "antd/es/form";
+import { StoreValue } from "antd/es/form/interface";
 import Link from "next/link";
-type ILoginInput = {
-  emai: string;
+import "tailwindcss/tailwind.css";
+
+type IRegisterInput = {
+  name: string;
+  email: string;
   password: string;
+  rePassword: string;
 };
-const LoginForm = () => {
-  const onFinish = (values: ILoginInput) => {
+
+const RegisterForm = () => {
+  const [form] = Form.useForm();
+
+  const onFinish = (values: IRegisterInput) => {
     console.log("Success:", values);
   };
 
@@ -15,9 +24,19 @@ const LoginForm = () => {
     console.log("Failed:", errorInfo);
   };
 
+  const validatePassword = (_: RuleObject, value: StoreValue) => {
+    if (value && form.getFieldValue("password") !== value) {
+      return Promise.reject(
+        new Error("The two passwords that you entered do not match!")
+      );
+    }
+    return Promise.resolve();
+  };
+
   return (
     <Form
-      name="login"
+      form={form}
+      name="register"
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -31,8 +50,20 @@ const LoginForm = () => {
       className="bg-white  rounded-lg shadow-lg "
     >
       <h1 className="text-2xl text-left font-secondary font-semibold mb-3">
-        Login
+        Register
       </h1>
+
+      <Form.Item
+        name="name"
+        rules={[{ required: true, message: "Please input your name!" }]}
+        className="mb-6"
+      >
+        <Input
+          placeholder="Name"
+          className="bg-gray-100 border border-gray-300 text-gray-900 rounded-lg py-2 px-4 w-full"
+        />
+      </Form.Item>
+
       <Form.Item
         name="email"
         rules={[{ required: true, message: "Please input your email!" }]}
@@ -56,30 +87,35 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="remember"
-        valuePropName="checked"
-        className="flex items-center justify-between mb-4"
+        name="rePassword"
+        dependencies={["password"]}
+        hasFeedback
+        rules={[
+          { required: true, message: "Please confirm your password!" },
+          { validator: validatePassword },
+        ]}
+        className="mb-6"
       >
-        <a href="" className="text-primary">
-          Forgot password?
-        </a>
+        <Input.Password
+          placeholder="Retype Password"
+          className="bg-gray-100 border border-gray-300 text-gray-900 rounded-lg py-2 px-4 w-full"
+        />
       </Form.Item>
 
       <Form.Item className="mb-6">
         <Button
-          // style={{ backgroundColor: "var(--primaryColor) !important" }}
           htmlType="submit"
           className="!bg-primary !text-white py-2 px-4 w-full rounded-lg"
         >
-          Sign in
+          Register
         </Button>
       </Form.Item>
 
       <Form.Item>
         <div className="text-center text-gray-900">
-          Do not have an account yet?
-          <Link href="/register" className="text-primary">
-            Sign up
+          Already have an account?
+          <Link href="/login" className="text-primary">
+            Login
           </Link>
         </div>
       </Form.Item>
@@ -87,4 +123,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
