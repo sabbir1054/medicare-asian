@@ -7,12 +7,13 @@ const { Panel } = Collapse;
 const Sidebar = ({ isOpen }: any) => {
   return (
     <aside
-      className={`fixed top-17 left-0 h-full  text-white transition-all ${
+      className={`fixed top-17 left-0 shadow-md  text-white transition-all ${
         isOpen ? "w-96" : "w-0"
       } overflow-hidden z-40`}
       style={{
-        borderRight: "2px solid #424242",
+        borderRight: "0.5px solid #42424229",
         transition: "all 0.3s easi-in",
+        height: "99vh",
       }}
     >
       <div className="p-4">

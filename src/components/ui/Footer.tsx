@@ -66,7 +66,11 @@ const footerData = {
 };
 const FooterSection = () => {
   return (
-    <footer className="bg-teal-700 text-white py-10" style={{ zIndex: "1000" }}>
+    <footer
+      className="bg-teal-700 text-white py-10"
+          style={{ zIndex:"50" }}
+    
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {footerData.sections.map((section, index) => (

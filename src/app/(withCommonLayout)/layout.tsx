@@ -1,6 +1,7 @@
 "use client";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Sidebar from "@/components/SadeBar/SideBar";
+import FooterSection from "@/components/ui/Footer";
 
 import React, { useState } from "react";
 
@@ -18,14 +19,14 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex flex-grow">
           <Sidebar isOpen={isSidebarOpen} />
           <main
-            className={`flex-grow transition-all ${
+            className={`flex-grow transition-all min-h-screen ${
               isSidebarOpen ? "ml-96" : "ml-0"
             } p-4`}
           >
             {children}
           </main>
         </div>
-        {/* <Footer /> */}
+        <FooterSection />
       </div>
     </>
   );
