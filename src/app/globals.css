@@ -63,15 +63,16 @@ small {
   font-size: 18px !important;
   font-weight: bold !important;
 }
-.custom-checkbox .ant-checkbox-inner {
-  border-color: var(--primary-color) !important;
+
+.dashboardSidebarMenu .ant-menu-item:hover {
+  background-color: #0e767354 !important;
 }
 
-.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
-  background-color: var(--primary-color) !important;
-  border-color: var(--primary-color) !important;
+.dashboardSidebarMenu .ant-menu-item-selected {
+  background-color: var(--primaryColor) !important;
+  color: #ffffff !important;
 }
 
-.custom-checkbox .ant-checkbox-checked::after {
-  border-color: white !important;
+.dashboardSidebarMenu .ant-menu-item-selected .anticon {
+  color: #ffffff !important;
 }
